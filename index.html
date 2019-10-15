@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Beat Rick the almighty!</title>
+    <link rel="stylesheet" href="lib/bootstrap/bootstrap.css" />
+    <link rel="stylesheet" href="css/app.css" />
+    <link rel="icon" href="img/icon.png" type="image/gif" sizes="16x16" />
+  </head>
+
+  <body>
+    <div class="main-container">
+      <header class="header">
+        <h1>Beat Rick the almighty!</h1>
+      </header>
+      <div class="inner-container">
+        <div class="rick-container">
+          <img class="rick-img" src="img/2.png" />
+        </div>
+        <main>
+          <section class="game-start">
+            <h2>Bet you a beer I can guess whoever you'll think of...</h2>
+            <button onclick="onStartGuessing()" class="btn btn-lg btn-success">
+              Ok, I'm ready
+            </button>
+          </section>
+          <section class="game-success" style="display: none">
+            <h2>Oh yeah! You owe me a beer!</h2>
+            <button
+              onclick="init();onStartGuessing();"
+              class="btn btn-lg btn-success"
+            >
+              Double or nothing?
+            </button>
+          </section>
+
+          <!-- Question Area -->
+          <section class="quest" style="display: none">
+            <h2></h2>
+            <button onclick="onUserResponse('yes')" class="btn btn-info">
+              Yes
+            </button>
+            <button onclick="onUserResponse('no')" class="btn btn-danger">
+              No
+            </button>
+          </section>
+
+          <!-- Learning a new guess -->
+          <section class="new-quest" style="display: none">
+            <button class="btn" onclick="onShowLog()">Show all Q&A</button>
+            <div class="log-modal-container">
+              <div class="log-modal hide"></div>
+            </div>
+            <h2>fuck it, I give up...</h2>
+            <form class="form-horizontal">
+              <div class="form-group">
+                <label for="newGuess" class="col-md-8 control-label"
+                  >Who did you think of?
+                </label>
+                <div class="col-sm-6">
+                  <input
+                    name="newGuess"
+                    type="txt"
+                    style="width:400px"
+                    class="form-control"
+                    id="newGuess"
+                    placeholder="Your Character's name"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="newQuest" class="col-md-8 control-label"
+                  >ok, what should I ask next time?</label
+                >
+                <div class="col-sm-6">
+                  <input
+                    name="newQuest"
+                    type="txt"
+                    style="width:400px"
+                    class="form-control"
+                    id="newQuest"
+                    placeholder="How would you define this character?"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="btn-container">
+                  <button
+                    type="submit"
+                    onclick="onAddGuess();return false;"
+                    class="btn btn-primary mt30"
+                  >
+                    Teach Me!
+                  </button>
+                </div>
+                <br />
+                also weddings are basically funerals with cake
+              </div>
+            </form>
+          </section>
+        </main>
+      </div>
+      <footer>
+        <h6>coffeerights &copy; 2019 | Nimrod Gaver</h6>
+      </footer>
+    </div>
+    <script src="js/util.js"></script>
+    <script src="lib/bootstrap/bootstrap.js"></script>
+    <script src="lib/jquery/jquery.js"></script>
+    <script src="js/quest-service.js"></script>
+    <script src="js/quest-controller.js"></script>
+  </body>
+</html>
